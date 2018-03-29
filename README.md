@@ -20,6 +20,7 @@ onComplete | function | null | A function that is performed after loading dynami
 ```
 
 ### With options
+```html
 <script>
     $('#load-more').loadMore({
         containerSelector: '#posts',
@@ -32,3 +33,4 @@ onComplete | function | null | A function that is performed after loading dynami
         }
     });
 </script>
+```
