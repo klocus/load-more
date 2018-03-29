@@ -3,7 +3,7 @@ Simple jQuery plugin that downloads remote content by AJAX on scroll or on butto
 
 ## Options
 Name | Type | Default | Description
------------- | -------------
+------------ | ------------- | ------------- | -------------
 containerSelector | string | #posts | A container in which dynamic content appears
 loadingSelector | string | #loading | Loading element
 requestUrl | string | objects.php?page= | An address that will return dynamic HTML content
@@ -22,7 +22,7 @@ onComplete | function | null | A function that is performed after loading dynami
 ### With options
 ```html
 <script>
-    $('#load-more').loadMore({
+    $('#button-selector').loadMore({
         containerSelector: '#posts',
         requestUrl: 'objects.php?page=',
         requestOnStart: true,
