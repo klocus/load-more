@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <title>Load more jQuery plugin</title>
+    <link rel="stylesheet" href="css/framework.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="container" id="wrap">
+        <h1 class="page-title">Load more!</h1>
+        <h3 class="page-subtitle">Simple and lightweight jQuery plugin that downloads remote content by AJAX on scroll or on button click.</h3>
+        <section class="main-content">
+            <div class="files list-view" id="posts">
+                <!-- The dynamic content is loaded here -->
+            </div>
+        </section>
+		
+        <div id="loading">
+            <img src="img/loader.gif" alt="loader">
+        </div>
+    
+        <div id="load-more">
+            Load More...
+        </div>
+	</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/load-more.jquery.min.js"></script>
+    <script>
+        $('#load-more').loadMore({
+            requestUrl: 'backend/objects.php?page=',
+        });
+    </script>
+</body>
+</html>

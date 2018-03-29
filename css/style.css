@@ -1,0 +1,181 @@
+/* Copyright by Paweł Klockiewicz; MIT licensed */
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
+
+/* 1. GENERAL
+------------------------------------------------------------------ */
+html, body{
+	background-color: #f5f5f5;
+	color: #202328;
+	font-family: "Lato", Sans-Serif;
+}
+
+a {
+	color: #0ae;
+	text-decoration: none;
+	transition: 0.3s all;
+}
+
+#wrap {
+	margin-bottom: 4em;
+}
+
+/* 2. HEADINGS
+------------------------------------------------------------------ */
+.page-title {
+	text-align: center;
+	font-weight: 800;
+}
+
+.page-subtitle {
+	margin-bottom: 2em;
+	text-align: center;
+	opacity: .7;
+}
+
+/* 3. BOX SHADOW
+------------------------------------------------------------------ */
+.box-shadow {
+	padding: 1rem;
+	border-radius: 5px;
+	background-color: #fff;
+	box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.06);
+	margin-bottom: 1.5rem;
+}
+
+/* 4. POSTS
+------------------------------------------------------------------ */
+.file-box .row {
+	margin: 0;
+	overflow: hidden;
+}
+
+.file-box .image img {
+	width: auto;
+	height: 75px;
+	border-radius: 50%;
+}
+
+.file-box .info {
+	margin-top: .5em;
+}
+	.file-box .info .name {
+		margin-top: 0;
+	}
+	.file-box .info .tags {
+		height: auto;
+		padding-top: 0;
+		background: transparent;
+	}
+		.file-box .info .tags a {
+			margin-right: 8px;
+			padding: 1px 8px;
+			border: 2px solid #e5e5e5;
+			border-radius: 5px;
+			font-size: 12px;
+			font-weight: 500;
+			text-transform: uppercase;
+			color: #999;
+		}
+			.file-box .info .tags a:hover {
+				border: 2px solid #0ae;
+				color: #0ae;
+				background: transparent;
+			}
+
+/* 4. POSTS
+------------------------------------------------------------------ */
+.file-box .meta {
+	margin-top: .5em;
+	text-align: right;
+}
+	.file-box .meta .title {
+		margin-top: 0;
+		color: #999;
+	}
+	.file-box .meta .value {
+		margin-bottom: 0;
+		font-size: 14px;
+		font-weight: 500;
+	}
+
+.file-box .actions {
+	margin-top: .4em;
+	text-align: right;
+}
+	.file-box .actions .nav {
+		height: auto;
+		background: transparent;
+	}
+		.file-box .actions .nav a {
+			padding: 0;
+			color: #999;
+			margin: 0 8px;
+			font-size: 32px;
+		}
+			.file-box .actions .nav a:hover {
+				color: #0ae;
+				background: transparent;
+			}
+  
+/* 5. LOAD MORE & LOADING
+------------------------------------------------------------------ */
+#load-more,
+#loading {
+	padding: 1rem;
+	border-radius: 5px;
+	background-color: #ffffff;
+	text-align: center;
+	font-weight: 700;
+	color: #0ae;
+}
+
+#load-more {
+	cursor: pointer;
+	transition: 0.3s all;
+}
+	#load-more:hover {
+		box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.06);
+	}
+  
+#loading {
+	box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.06);
+}
+
+/* 6. MEDIA QUERIES
+------------------------------------------------------------------ */
+@media (max-width: 870px) {
+	.file-box {
+		text-align: center;
+	}
+		.file-box .meta {
+			text-align: center;
+		}
+			.file-box .meta .title {
+				margin-bottom: 0;
+			}
+			.file-box .meta .value {
+				margin-bottom: 1em;
+			}
+		.file-box .actions {
+			text-align: center;
+		}
+			.file-box .actions .nav {
+				padding-bottom: 0;
+			}
+}
+
+@media (max-width: 500px) {
+	.file-box .tags {
+		text-align: center;
+	}
+		.file-box .tags a {
+			display: inline-block;
+			margin-bottom: 1em;
+			width: 80%;
+		}
+
+	.file-box .actions .nav a {
+		display: inline-block;
+		width: auto;
+	}
+}
