@@ -1,13 +1,13 @@
 /* Copyright by Paweł Klockiewicz; MIT licensed */
 $.fn.loadMore = function(options) {
-	var contentIsLoading  = false;
-	var settings 		  = $.extend({
+	var contentIsLoading	= false;
+	var settings			= $.extend({
 		containerSelector	: '#posts',
 		requestUrl			: 'objects.php?page=',
 		requestOnStart		: true,
 		requestOnScroll		: false,
-        loadingSelector	 	: '#loading',
-        onComplete          : null
+		loadingSelector		: '#loading',
+		onComplete			: null
 	}, options);
 
 	function showLoading() {		
@@ -39,12 +39,12 @@ $.fn.loadMore = function(options) {
 		showLoading();
 		hideButton(buttonSelector);
         
-        var page = parseInt($(buttonSelector).attr('data-page'));
+		var page = parseInt($(buttonSelector).attr('data-page'));
 		var nextPage = page + 1;	
 
 		$.get(settings.requestUrl + nextPage, function(data, status) {             
 			hideLoading();
-            setCurrentPage(nextPage, buttonSelector);
+			setCurrentPage(nextPage, buttonSelector);
             
             if ($(buttonSelector).parent(settings.containerSelector).length) {
                 $(buttonSelector).before(data);     
@@ -54,17 +54,17 @@ $.fn.loadMore = function(options) {
 
 			if (!settings.requestOnScroll) {
 				showButton(buttonSelector);
-            }
+			}
             
             if ($.isFunction(settings.onComplete)) {
                 settings.onComplete.call(buttonSelector);
-            }
-
+			}
+			
 			contentIsLoading = false;
 		}).fail(function() {
-            console.log("Can't load content...");
-            hideLoading();
-            hideButton(buttonSelector);
+			console.log("Can't load content...");
+			hideLoading();
+			hideButton(buttonSelector);
         });                 
 	}
 
@@ -90,7 +90,7 @@ $.fn.loadMore = function(options) {
 			}); 
 		} else {
 			$(this).on('click', function(event) {
-                event.preventDefault();
+				event.preventDefault();
 				appendContent(this);
 			});
         }
