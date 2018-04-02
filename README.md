@@ -8,7 +8,8 @@ containerSelector | string | *#posts* | A container in which dynamic content app
 loadingSelector | string | *#loading* | Loading element.
 requestUrl | string | *objects.php?page=* | An address that will return dynamic HTML content.
 requestOnStart | boolean | *true* | Loads dynamic content as soon as the page loads.
-requestOnScroll | boolean | *false* | Loading dynamic content with page scrolling down
+requestOnScroll | boolean | *false* | Loading dynamic content with page scrolling down.
+pagesCount | integer | *0* | The maximum number of pages. By default, no limit.
 onComplete | function | *null* | A function that is performed after loading dynamic content.
 
 ## Using
