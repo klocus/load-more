@@ -3,10 +3,11 @@ $.fn.loadMore = function(options) {
     var contentIsLoading = false;
     var settings = $.extend({
         containerSelector: '#posts',
+        loadingSelector: '#loading',
         requestUrl: 'objects.php?page=',
         requestOnStart: true,
         requestOnScroll: false,
-        loadingSelector: '#loading',
+        pagesCount: 0,
         onComplete: null
     }, options);
 
@@ -26,8 +27,8 @@ $.fn.loadMore = function(options) {
         $(buttonSelector).hide();
     }
 
-    function setCurrentPage(page, buttonSelector) {
-        $(buttonSelector).attr('data-page', page);
+    function setCurrentPage(page) {
+        $(document.body).attr('data-page', page);
     }
 
     function appendContent(buttonSelector) {
@@ -39,17 +40,22 @@ $.fn.loadMore = function(options) {
         showLoading();
         hideButton(buttonSelector);
 
-        var page = parseInt($(buttonSelector).attr('data-page'));
+        var page = parseInt($(document.body).attr('data-page'));
         var nextPage = page + 1;
 
         $.get(settings.requestUrl + nextPage, function(data, status) {
             hideLoading();
-            setCurrentPage(nextPage, buttonSelector);
+            setCurrentPage(nextPage);
 
             if ($(buttonSelector).parent(settings.containerSelector).length) {
                 $(buttonSelector).before(data);
             } else {
                 $(settings.containerSelector).append(data);
+            }
+
+            if ((settings.pagesCount > 0) && (settings.pagesCount == nextPage)) {
+                hideButton(buttonSelector);
+                return;
             }
 
             if (!settings.requestOnScroll) {
@@ -78,7 +84,7 @@ $.fn.loadMore = function(options) {
     }
 
     return this.each(function() {
-        setCurrentPage(0, this);
+        setCurrentPage(0);
 
         if (settings.requestOnStart) {
             appendContent(this);
